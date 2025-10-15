@@ -1,5 +1,6 @@
 import './App.css'
 import Counter from './components/Counter'
+import Starts from './components/Starts'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         mx-auto mt-10 space-y-5">
         <Counter/>
         <Counter/>
+        <Starts totalCount={10} />
       </div>
     </div>
   )
