@@ -1,10 +1,47 @@
+import { useState } from 'react'
 import './App.css'
 import Counter from './components/Counter'
 import Starts from './components/Starts'
 
+const initialCounters =[
+  {
+    id: 1,
+    value: 0
+  },
+  {
+    id: 2,
+    value: 0
+  }
+]
+
 function App() {
+  const [counters, setCounters] =useState(initialCounters)
+  const handleIncrement = (counterId)=>{
+    const updatedCounters = counters.map(counter=>{
+        if (counter.id === counterId) {
+          return{
+            ...counter,
+            value: counter.value + 1
+          }
+        }
+        return counter
+      })
+      setCounters(updatedCounters)
+  }
+  const handleDecrement = (counterId)=>{
+    const updatedCounters = counters.map(counter=>{
+        if (counter.id === counterId) {
+          return{
+            ...counter,
+            value: counter.value - 1
+          }
+        }
+        return counter
+      })
+      setCounters(updatedCounters)
+  }
 
-
+  const totalCount = counters.reduce((sum, current)=>sum + current.value, 0)
   return (
     <div className="w-screen h-screen p-10 bg-gray-100
        text-slate-700">
@@ -13,9 +50,9 @@ function App() {
       </h1>
       <div className="max-w-md
         mx-auto mt-10 space-y-5">
-        <Counter/>
-        <Counter/>
-        <Starts totalCount={10} />
+        {counters.map(counter=><Counter key={counter.id} count={counter.value} onIncrement={()=>handleIncrement(counter.id)} onDecrement={()=>handleDecrement(counter.id)}/>
+        )}
+        <Starts totalCount={totalCount} />
       </div>
     </div>
   )
