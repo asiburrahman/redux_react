@@ -3,6 +3,7 @@ import './App.css'
 import Counter from './components/Counter'
 import Starts from './components/Starts'
 import { decrement, increment } from './features/counters/counterSlice'
+import Posts from './components/Posts'
 
 
 
@@ -14,7 +15,7 @@ function App() {
 
   }
   const handleDecrement = (counterId) => {
-    dispatch(decrement(counterId))
+    dispatch(decrement(counterId))  //Note: I can pass as parameter only one data if I have to pass multiple data then I can use object as a parameter
 
   }
 
@@ -30,6 +31,7 @@ function App() {
         {counters.map(counter => <Counter key={counter.id} count={counter.value} onIncrement={() => handleIncrement(counter.id)} onDecrement={() => handleDecrement(counter.id)} />
         )}
         <Starts totalCount={totalCount} />
+        <Posts></Posts>
       </div>
     </div>
   )
