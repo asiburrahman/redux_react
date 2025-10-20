@@ -4,8 +4,8 @@ import { fetchPosts } from '../features/posts/postsSlice';
 
 const Posts = () => {
     const {posts, isLoading, isError, error} = useSelector(state=> state.posts);
-    const dispatch = useDispatch()
-    console.log(posts);
+    const dispatch =  useDispatch()
+    
     
     useEffect(()=>{
         dispatch(fetchPosts())

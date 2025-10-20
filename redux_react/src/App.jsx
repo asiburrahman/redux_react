@@ -4,6 +4,7 @@ import Counter from './components/Counter'
 import Starts from './components/Starts'
 import { decrement, increment } from './features/counters/counterSlice'
 import Posts from './components/Posts'
+import Todos from './components/Todos'
 
 
 
@@ -31,7 +32,8 @@ function App() {
         {counters.map(counter => <Counter key={counter.id} count={counter.value} onIncrement={() => handleIncrement(counter.id)} onDecrement={() => handleDecrement(counter.id)} />
         )}
         <Starts totalCount={totalCount} />
-        <Posts></Posts>
+        {/* <Posts></Posts> */}
+        <Todos></Todos>
       </div>
     </div>
   )
