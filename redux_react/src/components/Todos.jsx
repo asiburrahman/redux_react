@@ -1,6 +1,7 @@
 import React from 'react';
-import { useGetAllTodosQuery } from '../Todo/todoSlice';
+
 import SingleTodo from './SingleTodo';
+import { useGetAllTodosQuery } from '../Todo/todoSlice';
 
 const Todos = () => {
     const {data, isLoading, error} =  useGetAllTodosQuery();
@@ -10,7 +11,7 @@ const Todos = () => {
     
     return (
         <div>
-            {data?.map(todo =><SingleTodo key={todo.id} todo={todo.todo}></SingleTodo>)}
+            {data?.map(todo =><SingleTodo key={todo.id} todo={todo}></SingleTodo>)}
         </div>
     );
 };

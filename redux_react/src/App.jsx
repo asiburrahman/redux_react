@@ -5,6 +5,7 @@ import Starts from './components/Starts'
 import { decrement, increment } from './features/counters/counterSlice'
 import Posts from './components/Posts'
 import Todos from './components/Todos'
+import AddTodo from './components/addTodo'
 
 
 
@@ -27,12 +28,13 @@ function App() {
       <h1 className="max-w-md mx-auto text-center text-2xl font-bold">
         Simple Counter Application
       </h1>
-      <div className="max-w-md
+      <div className="max-w-xl
         mx-auto mt-10 space-y-5">
         {counters.map(counter => <Counter key={counter.id} count={counter.value} onIncrement={() => handleIncrement(counter.id)} onDecrement={() => handleDecrement(counter.id)} />
         )}
         <Starts totalCount={totalCount} />
         {/* <Posts></Posts> */}
+        <AddTodo></AddTodo>
         <Todos></Todos>
       </div>
     </div>

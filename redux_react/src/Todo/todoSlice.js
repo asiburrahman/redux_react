@@ -20,7 +20,18 @@ export const todoSlice = createApi({
         return `/todos/${id}`;
       },
     }),
+     addTodos: builder.mutation({
+      query: (params) => {
+        // example of mock data
+        return {
+            url:`/todos/add`,
+            method:"POST",
+            body: params,
+         };
+      },
+     
+    })
   }),
 });
 
-export const { useGetAllTodosQuery } = todoSlice;
+export const { useGetAllTodosQuery, useLazyGetTodosQuery, useAddTodosMutation } = todoSlice;
